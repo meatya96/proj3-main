@@ -34,6 +34,11 @@ class ProductForm(StyleFormMixin, ModelForm):
                 raise forms.ValidationError(f'Описание не должно содержать слово "{forbidden_word}"')
         return cleaned_data
 
+class ProductModeratorForm(StyleFormMixin, ModelForm):
+    class Meta:
+        model = Product
+        fields = ("description", "name", 'category',)
+
 
 class VersionForm(StyleFormMixin, ModelForm):
     class Meta:

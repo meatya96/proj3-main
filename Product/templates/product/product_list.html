@@ -21,9 +21,11 @@
                     <li>{{ product.description|slice:":100" }}</li>
                     <img src='{{ product.photo | media_filter}}'>
                 </ul>
+                {% if perms.product.can_update_product and perms.product.can_active_product and perms.product.can_update_product_category %}
+                <a type="button" class="btn btn-lg btn-block btn-outline-primary" href="{% url 'Product:product_update' product.pk %}">Редактировать</a>
+                {% endif %}
                 <button type="button" class="btn btn-lg btn-block btn-outline-primary">Купить</button>
                 <a type="button" class="btn btn-lg btn-block btn-outline-primary" href="{% url 'Product:single_product' product.pk %}">Детали</a>
-                <a type="button" class="btn btn-lg btn-block btn-outline-primary" href="{% url 'Product:product_update' product.pk %}">Редактировать</a>
                 <a type="button" class="btn btn-lg btn-block btn-outline-primary" href="{% url 'Product:product_delete' product.pk %}">Удалить</a>
             </div>
         </div>

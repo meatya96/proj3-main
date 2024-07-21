@@ -3,4 +3,4 @@ from django.contrib import admin
 
 @admin.register(User)
 class UserAdmin(admin.ModelAdmin):
-    list_display = ('email', 'avatar', 'phone', 'country')
+    list_display = ('id', 'email')
